@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const Button = (props) => {
   return (
-    <button className={props.clas} onClick={() => props.handleClick() }><Link to={props.src}>{props.text}</Link></button>
+    <button className={props.clas} onClick={() => props.handleClick() }><Link className="link" to={props.src}>{props.text}</Link></button>
   );
 }
 

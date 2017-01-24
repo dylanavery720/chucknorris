@@ -6,7 +6,7 @@ import React from 'react';
 
 const Input = (props) => {
   return (
-    <input type="number" placeholder={5} onChange={props.handleChange}></input>
+    <input type={props.type} placeholder={props.placeholder} onChange={props.handleChange}></input>
   );
 }
 
