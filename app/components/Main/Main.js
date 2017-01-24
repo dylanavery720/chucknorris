@@ -10,7 +10,7 @@ export default class Main extends React.Component {
     super()
     this.state = {
       data: [],
-      jokenumber: null
+      jokenumber: 1
     }
   this.displayer = this.displayer.bind(this)
   this.handleChange = this.handleChange.bind(this)
@@ -29,10 +29,13 @@ export default class Main extends React.Component {
   }
 
   render() {
+    let data = this.state.data
   return (
     <div className="chuck-main">
       <h1>Main</h1>
-      <ul>{this.state.data.map((joke, i) => <li key={i}>{joke}</li> )}</ul>
+      <ul>
+      {data.map((joke, i) => <li key={i}>{joke}</li>)}
+      </ul>
       <Button handleClick={() => fetcher(this.props.url, this.displayer, this.state.jokenumber)} text="New Jokes" />
       <Input handleChange={this.handleChange} />
     </div>
