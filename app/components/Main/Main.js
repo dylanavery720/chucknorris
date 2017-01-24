@@ -1,9 +1,9 @@
 // components/Main/Main.js
 import React from 'react';
 import fetcher from '../Helpers/fetcher'
-
 import Button from '../Button/Button';
 import Input from '../Input/Input'
+import './main-style';
 
 export default class Main extends React.Component {
   constructor(){
@@ -38,7 +38,7 @@ export default class Main extends React.Component {
     let data = this.state.data
   return (
     <div className="chuck-main">
-      <h1>{this.state.joke}</h1>
+      <h1 className="initial-joke">{this.state.joke}</h1>
       <Button handleClick={() => fetcher(this.props.url, this.moreJokes, this.state.jokenumber)} text="New Jokes" />
       <Input handleChange={this.handleChange} />
       {React.cloneElement(this.props.children, {data:this.state.data})}

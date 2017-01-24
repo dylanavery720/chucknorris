@@ -1,12 +1,12 @@
 import React from 'react';
-// import './header-style';
+import './jokes-style';
 
 
 const Jokes = (props) => {
   return (
     <div className="chuck-jokes">
     <ul>
-    {props.data.map((joke, i) => <li key={i}>{joke}</li>)}
+    {props.data.map((joke, i) => <li className="a-joke" key={i}>{joke}</li>)}
     </ul>
     </div>
   );
