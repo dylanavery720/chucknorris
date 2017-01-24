@@ -5,6 +5,7 @@ import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import App from './components/App/App'
 import Jokes from './components/Jokes/Jokes'
+import Settings from './components/Settings/Settings'
 import './reset'
 import './styles'
 
@@ -17,6 +18,7 @@ render(
         <IndexRoute component={Jokes} />
         <Route path='/jokes' component={Jokes} />
       </Route>
+      <Route path='/settings' component={Settings} />
     </Route>
   </Router>
   , document.querySelector('.application'));
