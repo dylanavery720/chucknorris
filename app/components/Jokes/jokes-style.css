@@ -1,0 +1,11 @@
+.a-joke {
+  margin: 20px;
+  padding: 20px;
+  width: 25%;
+  display: inline-block;
+  background: rgba(0,0,0,0.2);
+}
+
+.chuck-jokes {
+  text-align: center;
+}

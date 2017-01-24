@@ -1,29 +1,48 @@
 // components/Main/Main.js
 import React from 'react';
 import fetcher from '../Helpers/fetcher'
+import Button from '../Button/Button';
+import Input from '../Input/Input'
+// import Joke from '../Joke/Joke'
+import './main-style';
 
 export default class Main extends React.Component {
   constructor(){
     super()
     this.state = {
-      data: ""
+      // joke: '',
+      data: [],
+      jokenumber: 1
     }
-  this.displayer = this.displayer.bind(this)
+  this.moreJokes = this.moreJokes.bind(this)
+  // this.oneJoke = this.oneJoke.bind(this)
+  this.handleChange = this.handleChange.bind(this)
   }
 
-  componentDidMount() {
-    fetcher(this.props.url, this.displayer)
-  }
+  // componentDidMount() {
+  //   fetcher(this.props.url, this.oneJoke, this.state.jokenumber)
+  // }
+  //
+  // oneJoke(datas) {
+  //   this.setState({joke: datas})
+  // }
 
-  displayer(datas) {
+  moreJokes(datas) {
     this.setState({data: datas})
   }
 
+  handleChange(e){
+    this.setState({jokenumber: e.target.value})
+  }
+
   render() {
+    let data = this.state.data
   return (
-    <div className="Main">
-      <h1>Main</h1>
-      <h1>{this.state.data}</h1>
+    <div className="chuck-main">
+      <h1>some stuff to dissapear</h1>
+      <Button handleClick={() => fetcher(this.props.url, this.moreJokes, this.state.jokenumber)} text="New Jokes" src="/jokes" />
+      <Input handleChange={this.handleChange} />
+      {React.cloneElement(this.props.children, {data:this.state.data})}
     </div>
   );
 }
