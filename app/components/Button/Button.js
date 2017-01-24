@@ -1,10 +1,11 @@
 // components/Button/Button.js
 
 import React from 'react';
+import { Link } from 'react-router';
 
 const Button = (props) => {
   return (
-    <button onClick={() => props.handleClick() }>{props.text}</button>
+    <button onClick={() => props.handleClick() }><Link to="/jokes">{props.text}</Link></button>
   );
 }
 
