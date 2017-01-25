@@ -2,11 +2,11 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import Main from './Main';
+import Jokes from './Jokes';
 
-describe('<Main/>', function () {
+describe('<Jokes/>', function () {
   it('should render as a div', function () {
-    const wrapper = shallow(<Main/>);
+    const wrapper = shallow(<Jokes/>);
     expect(wrapper.find('div')).to.have.length(1);
   });
 });

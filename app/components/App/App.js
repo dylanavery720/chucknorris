@@ -13,13 +13,13 @@ export default class App extends React.Component {
       url: "http://api.icndb.com/jokes/random"
     }
   this.oneJoke = this.oneJoke.bind(this)
-  this.set = this.set.bind(this)
+  // this.set = this.set.bind(this)
   }
 
   componentDidMount() {
     fetcher(this.state.url, this.oneJoke)
   }
-
+  //
   // set() {
   //   this.setState({url:`http://api.icndb.com/jokes/random?firstName=${}`})
   // }
@@ -34,8 +34,9 @@ export default class App extends React.Component {
     <div>
     <Header />
     <Joke joke={this.state.joke} />
-    {React.cloneElement(this.props.children, {url: "http://api.icndb.com/jokes/random", set:{this.set}})}
+    {React.cloneElement(this.props.children, {url: "http://api.icndb.com/jokes/random"})}
     </div>
   );
   }
 }
+    // {React.cloneElement(this.props.children, {url: "http://api.icndb.com/jokes/random", set:{this.set}})}

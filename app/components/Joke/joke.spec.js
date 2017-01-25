@@ -1,12 +1,13 @@
+
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import App from './App';
+import Joke from './Joke';
 
-describe('<App/>', function () {
+describe('<Joke/>', function () {
   it('should display a single h1 tag', function () {
-    const wrapper = shallow(<App/>);
-    expect(wrapper.find('div')).to.have.length(1);
+    const wrapper = shallow(<Joke/>);
+    expect(wrapper.find('h1')).to.have.length(1);
   });
 });

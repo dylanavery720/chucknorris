@@ -28,7 +28,6 @@ export default class Main extends React.Component {
     let data = this.state.data
   return (
     <div className="chuck-main">
-      <h1>some stuff to dissapear</h1>
       <Button handleClick={() => fetcher(this.props.url, this.moreJokes, this.state.jokenumber)} text="New Jokes" src="/jokes" />
       <Input handleChange={this.handleChange} placeholder="How many jokes?" type="number"/>
       {React.cloneElement(this.props.children, {data:this.state.data})}
