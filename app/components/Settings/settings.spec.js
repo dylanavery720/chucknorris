@@ -9,4 +9,8 @@ describe('<Settings/>',  () => {
     const wrapper = shallow(<Settings/>);
     expect(wrapper.find('div')).to.have.length(1);
   });
+  it.skip('should display a path of /settings',  () => {
+    const wrapper = shallow(<Settings/>);
+    expect(wrapper.find('div')).to.have.length(1);
+  });
 });

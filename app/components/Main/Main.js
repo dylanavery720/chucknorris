@@ -29,7 +29,7 @@ export default class Main extends React.Component {
   return (
     <div className="chuck-main">
       <Button handleClick={() => fetcher(this.props.url, this.moreJokes, this.state.jokenumber)} text="New Jokes" src="/jokes" />
-      <Input handleChange={this.handleChange} placeholder="How many jokes?" type="number"/>
+      <Input handleChange={this.handleChange} placeholder="How many jokes?" type="number" value={this.state.jokenumber}/>
       {React.cloneElement(this.props.children, {data:this.state.data})}
     </div>
   );

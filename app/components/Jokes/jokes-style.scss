@@ -1,6 +1,9 @@
+$padding-margin: 20px;
+
+
 .a-joke {
-  margin: 20px;
-  padding: 20px;
+  margin: $padding-margin;
+  padding: $padding-margin;
   width: 25%;
   display: inline-block;
   background: rgba(0,0,0,0.2);

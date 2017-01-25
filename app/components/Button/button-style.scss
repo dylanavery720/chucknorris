@@ -1,3 +1,6 @@
+$padding-margin: 20px;
+
+
 .settings-button {
   background: rgb(192,192,192);
   position: absolute;
@@ -8,7 +11,7 @@
   width: 50px;
   text-decoration: none;
   border: none;
-  margin: 20px;
+  margin: $padding-margin;
 }
 
 .link {
