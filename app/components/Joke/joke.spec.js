@@ -5,8 +5,8 @@ import {expect} from 'chai';
 
 import Joke from './Joke';
 
-describe('<Joke/>', function () {
-  it('should display a single h1 tag', function () {
+describe('<Joke/>', () => {
+  it('should display a single h1 tag', () => {
     const wrapper = shallow(<Joke/>);
     expect(wrapper.find('h1')).to.have.length(1);
   });

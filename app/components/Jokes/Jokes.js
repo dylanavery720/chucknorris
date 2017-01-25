@@ -12,4 +12,8 @@ const Jokes = (props) => {
   );
 }
 
+Jokes.propTypes = {
+  data: React.PropTypes.array,
+}
+
 export default Jokes;

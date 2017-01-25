@@ -40,3 +40,7 @@ export default class App extends React.Component {
   }
 }
     // {React.cloneElement(this.props.children, {url: "http://api.icndb.com/jokes/random", set:{this.set}})}
+
+    App.propTypes = {
+      children: React.PropTypes.object,
+    }

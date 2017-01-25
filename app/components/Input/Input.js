@@ -10,6 +10,10 @@ const Input = (props) => {
   );
 }
 
-
+Input.propTypes = {
+  onChange: React.PropTypes.func,
+  placeholder: React.PropTypes.string,
+  type: React.PropTypes.string,
+}
 
 export default Input;
