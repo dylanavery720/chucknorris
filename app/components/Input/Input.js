@@ -6,7 +6,7 @@ import React from 'react';
 
 const Input = (props) => {
   return (
-    <input type={props.type} placeholder={props.placeholder} onChange={props.handleChange}></input>
+    <label><input type={props.type} placeholder={props.placeholder} onChange={props.handleChange} value={props.value}></input>{props.value}</label>
   );
 }
 

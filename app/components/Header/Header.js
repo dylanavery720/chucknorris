@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="chuck-header">
       <h1 className="header-title">Chuck Norris Joke Machine</h1>
-      <Button text="Settings" clas="settings-button" src="/settings" />
+      <Button text="Settings" clas="settings-button" src="/settings" handleClick={console.log()} />
     </div>
   );
 }
