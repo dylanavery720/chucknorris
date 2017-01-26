@@ -15,3 +15,10 @@ export default class Settings extends React.Component {
     )
   }
 }
+
+Settings.propTypes = {
+  radio: React.PropTypes.string,
+  handleOption: React.PropTypes.func,
+  set: React.PropTypes.func,
+  handleNewName: React.PropTypes.func,
+}

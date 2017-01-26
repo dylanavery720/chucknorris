@@ -21,6 +21,10 @@ Input.propTypes = {
   onChange: React.PropTypes.func,
   placeholder: React.PropTypes.string,
   type: React.PropTypes.string,
+  clas: React.PropTypes.string,
+  checked: React.PropTypes.bool,
+  value: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
 }
 
 export default Input;

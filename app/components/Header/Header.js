@@ -14,5 +14,10 @@ const Header = props =>
     </div>
   );
 
+Header.propTypes = {
+  settings: React.PropTypes.bool,
+  enableSet: React.PropTypes.func,
+}
+
 
 export default Header;

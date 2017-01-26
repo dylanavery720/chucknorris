@@ -34,3 +34,10 @@ export default class Main extends React.Component {
     )
   }
 }
+
+Main.propTypes = {
+  url: React.PropTypes.string,
+  jokenumber: React.PropTypes.bool,
+  children: React.PropTypes.node,
+  handleJokeNumber: React.PropTypes.func,
+}
