@@ -6,23 +6,23 @@ import '../../reset'
 import '../../styles'
 
 export default class App extends React.Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       joke: '',
-      url: `http://api.icndb.com/jokes/random/?escape=javascript`,
+      url: 'http://api.icndb.com/jokes/random/?escape=javascript',
       newName: '',
       radio: null,
       settings: false,
-      jokenumber: false
+      jokenumber: false,
     }
     this.handleOption = this.handleOption.bind(this)
-  this.oneJoke = this.oneJoke.bind(this)
-  this.set = this.set.bind(this)
-  this.handleNewName = this.handleNewName.bind(this)
-  this.parentControl = this.parentControl.bind(this)
-  this.enableSet = this.enableSet.bind(this)
-  this.handleJokenumber = this.handleJokenumber.bind(this)
+    this.oneJoke = this.oneJoke.bind(this)
+    this.set = this.set.bind(this)
+    this.handleNewName = this.handleNewName.bind(this)
+    this.parentControl = this.parentControl.bind(this)
+    this.enableSet = this.enableSet.bind(this)
+    this.handleJokenumber = this.handleJokenumber.bind(this)
   }
 
   componentDidMount() {
@@ -30,48 +30,55 @@ export default class App extends React.Component {
   }
 
   handleOption(e) {
-    this.setState({radio: e.target.value}, this.parentControl)
+    this.setState({ radio: e.target.value }, this.parentControl)
   }
 
   parentControl() {
-    this.state.radio === "On" ? this.setState({url: this.state.url + `&exclude=[explicit]`}) : this.setState({url: "http://api.icndb.com/jokes/random?escape=javascript"})
+    this.state.radio === 'On' ? this.setState({ url: `${this.state.url}&exclude=[explicit]` }) : this.setState({ url: 'http://api.icndb.com/jokes/random?escape=javascript' })
   }
 
-  handleJokenumber(e){
-    this.setState({url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript`, jokenumber:true})
+  handleJokenumber(e) {
+    this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript`, jokenumber: true })
   }
 
   set() {
-    let nameArray = this.state.newName.split(' ')
-    let first = nameArray[0]
-    let last = nameArray[1]
-    this.setState({url:`http://api.icndb.com/jokes/random?escape=javascript&firstName=${first}&lastName=${last}`}, fetcher(this.state.url, this.oneJoke))
+    const nameArray = this.state.newName.split(' ')
+    const first = nameArray[0]
+    const last = nameArray[1]
+    this.setState({ url: `http://api.icndb.com/jokes/random?escape=javascript&firstName=${first}&lastName=${last}` }, fetcher(this.state.url, this.oneJoke))
   }
 
   handleNewName(e) {
-    this.setState({newName: e.target.value})
+    this.setState({ newName: e.target.value })
   }
 
   oneJoke(datas) {
-    this.setState({joke: datas})
+    this.setState({ joke: datas })
   }
 
-  enableSet(){
-    !this.state.settings ? this.setState({settings: true}) :
-    this.setState({settings: false})
+  enableSet() {
+    !this.state.settings ? this.setState({ settings: true }) :
+    this.setState({ settings: false })
   }
 
   render() {
-  return (
+    return (
     <div>
     <Header settings={this.state.settings} enableSet={this.enableSet} />
     <Joke joke={this.state.joke} />
-    {React.cloneElement(this.props.children, {url: this.state.url, handleNewName: this.handleNewName, set: this.set, handleOption: this.handleOption, radio: this.state.radio, enableSet: this.enableSet, handleJokenumber: this.handleJokenumber, jokenumber: this.state.jokenumber})}
+    {React.cloneElement(this.props.children, { url: this.state.url,
+      handleNewName: this.handleNewName,
+      set: this.set,
+      handleOption: this.handleOption,
+      radio: this.state.radio,
+      enableSet: this.enableSet,
+      handleJokenumber: this.handleJokenumber,
+      jokenumber: this.state.jokenumber })}
     </div>
-  );
+    )
   }
 }
 
-    App.propTypes = {
-      children: React.PropTypes.object,
-    }
+App.propTypes = {
+  children: React.PropTypes.object,
+}
