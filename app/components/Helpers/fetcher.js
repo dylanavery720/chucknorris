@@ -1,7 +1,7 @@
 
 const fetcher = (endpoint, func, jokenumber) => {
   jokenumber ?
-  fetch(endpoint + '/' + jokenumber)
+  fetch(endpoint + '/' + jokenumber + `?escape=javascript`)
   .then(response => response.json())
   .then(data => data.value)
   .then(array => array.map(i => i.joke))

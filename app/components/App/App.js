@@ -52,7 +52,6 @@ export default class App extends React.Component {
   }
 
   enableSet(){
-    console.log('legeit high')
     !this.state.settings ? this.setState({settings: true}) :
     this.setState({settings: false})
   }
