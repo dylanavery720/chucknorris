@@ -11,6 +11,7 @@ const Input = props =>
    className={props.clas}
    placeholder={props.placeholder}
    checked={props.checked}
+   title={props.title}
    onChange={props.handleChange}
    value={props.value} disabled={props.disabled}>
     </input>{props.value}</label>

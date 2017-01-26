@@ -12,12 +12,16 @@ export default class Main extends React.Component {
       data: [],
     }
     this.moreJokes = this.moreJokes.bind(this)
+    this.handleCheck = this.handleCheck.bind(this)
   }
 
   moreJokes(datas) {
     this.setState({ data: datas })
   }
 
+  handleCheck(joke, i) {
+    joke.fave = true
+  }
 
   render() {
     const data = this.state.data
@@ -29,7 +33,8 @@ export default class Main extends React.Component {
       </div>
       <Button text="Favorites" src="/favorites" clas="favorites-button"/>
       <p>Click New Jokes!</p>
-      {React.cloneElement(this.props.children, { data: this.state.data })}
+      {React.cloneElement(this.props.children, { data: this.state.data,
+        handleCheck: this.handleCheck })}
     </div>
     )
   }
