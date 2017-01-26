@@ -20,7 +20,7 @@ module.exports = {
     inline: true
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx', '.css']
+    extensions: ['', '.js', '.json', '.jsx', '.css', '.scss']
   },
   externals: {
   'cheerio': 'window',

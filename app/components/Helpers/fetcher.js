@@ -1,21 +1,14 @@
-// const fetcher = (endpoint, func) => {
-  // fetch(endpoint, {method: 'get'})
-  // .then(response => response.json())
-  // .then(data => data.value.joke)
-  // .then(joke => func(joke))
-//   // return joke;
-// }
+
 const fetcher = (endpoint, func, jokenumber) => {
   jokenumber ?
-  fetch(endpoint + '/' + jokenumber + '?escape=javascript', {method: 'get'})
+  fetch(endpoint + '/' + jokenumber)
   .then(response => response.json())
   .then(data => data.value)
   .then(array => array.map(i => i.joke))
-  .then(jokes => func(jokes)) :   fetch(endpoint + '?escape=javascript', {method: 'get'})
+  .then(jokes => func(jokes)) : fetch(endpoint)
     .then(response => response.json())
     .then(data => data.value.joke)
     .then(joke => func(joke))
-  // return joke;
 }
 
 

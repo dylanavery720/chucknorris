@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Karla');
 
+$padding-margin: 20px;
+
 
 .chuck-header {
   background: rgba(255, 255, 255, 0.3);
@@ -10,5 +12,5 @@
   font-size: 25px;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: $padding-margin;
   }

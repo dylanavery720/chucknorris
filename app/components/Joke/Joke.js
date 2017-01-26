@@ -8,6 +8,8 @@ const Joke = (props) => {
   );
 }
 
-
+Joke.propTypes = {
+  joke: React.PropTypes.string,
+}
 
 export default Joke;
