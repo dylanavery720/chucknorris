@@ -6,33 +6,38 @@ import Input from '../Input/Input';
 import './main-style';
 
 export default class Main extends React.Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       data: [],
-      jokenumber: 1
     }
-  this.moreJokes = this.moreJokes.bind(this)
-  this.handleChange = this.handleChange.bind(this)
+    this.moreJokes = this.moreJokes.bind(this)
   }
 
   moreJokes(datas) {
-    this.setState({data: datas})
+    this.setState({ data: datas })
   }
 
-  handleChange(e){
-    this.setState({jokenumber: e.target.value})
-  }
 
   render() {
-    let data = this.state.data
-  return (
+    const data = this.state.data
+    return (
     <div className="chuck-main">
-      <Button handleClick={() => fetcher(this.props.url, this.moreJokes, this.state.jokenumber)} text="New Jokes" src="/jokes" />
-      <Input handleChange={this.handleChange} placeholder="How many jokes?" type="number"/>
-      <Button text="Favorites" src="/favorites" />
-      {React.cloneElement(this.props.children, {data:this.state.data})}
+      <div className="chuck-butt">
+      <Button handleClick={() => fetcher(this.props.url, this.moreJokes, this.props.jokenumber)} text="New Jokes" src="/jokes" clas="joke-button" />
+      <Input handleChange={this.props.handleJokenumber} placeholder="5" type="number" clas="number-input"/>
+      </div>
+      <Button text="Favorites" src="/favorites" clas="favorites-button"/>
+      <p>Click New Jokes!</p>
+      {React.cloneElement(this.props.children, { data: this.state.data })}
     </div>
-  );
+    )
+  }
 }
+
+Main.propTypes = {
+  url: React.PropTypes.string,
+  jokenumber: React.PropTypes.bool,
+  children: React.PropTypes.node,
+  handleJokeNumber: React.PropTypes.func,
 }
