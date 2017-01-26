@@ -1,3 +1,17 @@
+$padding-margin: 20px;
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Karla');
+
 .settings {
   background: rgba(0,0,0,0.2);
+  padding: $padding-margin;
+  text-align: center;
+  font-family: "Karla", sans-serif;
+}
+
+.set-name {
+  margin: $padding-margin;
+}
+
+.parental {
+  margin: 0px $padding-margin;
 }

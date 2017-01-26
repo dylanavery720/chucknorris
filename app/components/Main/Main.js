@@ -28,6 +28,7 @@ export default class Main extends React.Component {
       <Input handleChange={this.props.handleJokenumber} placeholder="5" type="number" clas="number-input"/>
       </div>
       <Button text="Favorites" src="/favorites" clas="favorites-button"/>
+      <p>Click New Jokes!</p>
       {React.cloneElement(this.props.children, { data: this.state.data })}
     </div>
     )
