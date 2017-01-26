@@ -11,15 +11,20 @@ export default class Jokes extends React.Component {
     this.handleCheck = this.handleCheck.bind(this)
   }
 
-handleCheck(e) {
-  console.log(e.target.parentNode)
-  console.log('anythi')
+handleCheck(e,faveArray) {
+  let favoriteJoke = e.target.parentNode.parentNode
+  this.setState({favorites: this.props.data[0]})
+  // this.checkSet(faveArray)
+}
+
+checkSet(t){
+  this.setState({favorites: t})
 }
 
   render() {return (
     <div className="chuck-jokes">
     <ul>
-    {this.props.data.map((joke, i) => <li className="a-joke" key={i}>{joke}<Input type="checkbox" defaultChecked={true} handleChange={this.handleCheck} key={i} /></li>)}
+    {this.props.data.map((joke, i) => <li className="a-joke" key={i} id={i}>{joke}<Input type="checkbox" defaultChecked={true} handleChange={this.handleCheck} key={i} /></li>)}
     </ul>
     </div>
   )

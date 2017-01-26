@@ -10,10 +10,11 @@ export default class App extends React.Component {
     super()
     this.state = {
       joke: '',
-      url: "http://api.icndb.com/jokes/random?escape=javascript",
+      url: `http://api.icndb.com/jokes/random/?escape=javascript`,
       newName: '',
       radio: null,
       settings: false,
+      jokenumber: false
     }
     this.handleOption = this.handleOption.bind(this)
   this.oneJoke = this.oneJoke.bind(this)
@@ -21,6 +22,7 @@ export default class App extends React.Component {
   this.handleNewName = this.handleNewName.bind(this)
   this.parentControl = this.parentControl.bind(this)
   this.enableSet = this.enableSet.bind(this)
+  this.handleJokenumber = this.handleJokenumber.bind(this)
   }
 
   componentDidMount() {
@@ -33,7 +35,10 @@ export default class App extends React.Component {
 
   parentControl() {
     this.state.radio === "On" ? this.setState({url: this.state.url + `&exclude=[explicit]`}) : this.setState({url: "http://api.icndb.com/jokes/random?escape=javascript"})
+  }
 
+  handleJokenumber(e){
+    this.setState({url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript`, jokenumber:true})
   }
 
   set() {
@@ -61,7 +66,7 @@ export default class App extends React.Component {
     <div>
     <Header settings={this.state.settings} enableSet={this.enableSet} />
     <Joke joke={this.state.joke} />
-    {React.cloneElement(this.props.children, {url: "http://api.icndb.com/jokes/random", handleNewName: this.handleNewName, set: this.set, handleOption: this.handleOption, radio: this.state.radio, enableSet: this.enableSet})}
+    {React.cloneElement(this.props.children, {url: this.state.url, handleNewName: this.handleNewName, set: this.set, handleOption: this.handleOption, radio: this.state.radio, enableSet: this.enableSet, handleJokenumber: this.handleJokenumber, jokenumber: this.state.jokenumber})}
     </div>
   );
   }
