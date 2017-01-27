@@ -11,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       joke: '',
       url: 'http://api.icndb.com/jokes/random/?escape=javascript',
-      newName: '',
+      newName: null,
       radio: null,
       settings: false,
       jokenumber: false,
@@ -41,9 +41,12 @@ export default class App extends React.Component {
   }
 
   handleJokenumber(e) {
-    if (!this.state.radio) {
+    if (!this.state.radio && !this.state.newName) {
+      this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript`, jokenumber: true })
+    }
+    if (!this.state.radio && this.state.newName) {
       this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}`, jokenumber: true })
-    } else {
+    } else if (this.state.radio && this.state.newName) {
       this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}&exclude=[explicit]`, jokenumber: true })
     }
   }

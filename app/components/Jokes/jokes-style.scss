@@ -7,6 +7,7 @@ $padding-margin: 20px;
   width: 25%;
   display: inline-block;
   background: rgba(0,0,0,0.2);
+  position: relative;
 }
 
 .chuck-jokes {
@@ -14,8 +15,8 @@ $padding-margin: 20px;
 }
 
 .fave-button {
-  margin: $padding-margin;
   background-color: transparent;
+  font-size: 18px;
   border: none;
   color: white;
   position: relative;
