@@ -15,6 +15,8 @@ export default class App extends React.Component {
       radio: null,
       settings: false,
       jokenumber: false,
+      firstName: '',
+      lastName: '',
     }
     this.handleOption = this.handleOption.bind(this)
     this.oneJoke = this.oneJoke.bind(this)
@@ -23,6 +25,7 @@ export default class App extends React.Component {
     this.parentControl = this.parentControl.bind(this)
     this.enableSet = this.enableSet.bind(this)
     this.handleJokenumber = this.handleJokenumber.bind(this)
+    this.reset = this.reset.bind(this)
   }
 
   componentDidMount() {
@@ -38,7 +41,11 @@ export default class App extends React.Component {
   }
 
   handleJokenumber(e) {
-    this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript`, jokenumber: true })
+    if (!this.state.radio) {
+      this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}`, jokenumber: true })
+    } else {
+      this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}&exclude=[explicit]`, jokenumber: true })
+    }
   }
 
   set() {
@@ -46,8 +53,12 @@ export default class App extends React.Component {
       const nameArray = this.state.newName.split(' ')
       const first = nameArray[0]
       const last = nameArray[1]
-      this.setState({ url: `http://api.icndb.com/jokes/random?escape=javascript&firstName=${first}&lastName=${last}` }, fetcher(`${this.state.url}&firstName=${first}&lastName=${last}`, this.oneJoke))
+      this.setState({ url: `http://api.icndb.com/jokes/random?escape=javascript&firstName=${first}&lastName=${last}`, firstName: first, lastName: last }, fetcher(`${this.state.url}&firstName=${first}&lastName=${last}`, this.oneJoke))
     }
+  }
+
+  reset() {
+    this.setState({ newName: '' }, fetcher('http://api.icndb.com/jokes/random/?escape=javascript', this.oneJoke))
   }
 
   handleNewName(e) {
@@ -71,6 +82,7 @@ export default class App extends React.Component {
     {React.cloneElement(this.props.children, { url: this.state.url,
       handleNewName: this.handleNewName,
       set: this.set,
+      reset: this.reset,
       handleOption: this.handleOption,
       radio: this.state.radio,
       enableSet: this.enableSet,

@@ -1,20 +1,14 @@
 import React from 'react';
 import '../Jokes/jokes-style';
-import Input from '../Input/Input';
+import Button from '../Button/Button';
 
 export default class Favorites extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      favorites: [],
-    }
-  }
 
   render() {
     return (
     <div className="chuck-jokes">
     <ul>
-    {this.props.data.map((joke, i) => <li className="a-joke" key={i} id={i}>{joke}<Input type="checkbox" defaultChecked={true} key={i} /></li>)}
+    {this.props.favorites.map((joke, i) => <li className="a-joke" key={i} id={i}>{joke}<Button clas="fave-button" text="&#9733;" handleClick={() => this.props.handleCheck(joke, i)} /></li>)}
     </ul>
     </div>
     )

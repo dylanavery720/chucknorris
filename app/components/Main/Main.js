@@ -10,6 +10,7 @@ export default class Main extends React.Component {
     super()
     this.state = {
       data: [],
+      favorites: [],
     }
     this.moreJokes = this.moreJokes.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
@@ -20,7 +21,10 @@ export default class Main extends React.Component {
   }
 
   handleCheck(joke, i) {
-    joke.fave = true
+    const faveArray = this.state.favorites
+    faveArray.push(joke)
+    // this.setState({ favorites: faveArray })
+    this.setState({ favorites: faveArray })
   }
 
   render() {
@@ -34,7 +38,8 @@ export default class Main extends React.Component {
       <Button text="Favorites" src="/favorites" clas="favorites-button"/>
       <p>Click New Jokes!</p>
       {React.cloneElement(this.props.children, { data: this.state.data,
-        handleCheck: this.handleCheck })}
+        handleCheck: this.handleCheck,
+        favorites: this.state.favorites })}
     </div>
     )
   }
