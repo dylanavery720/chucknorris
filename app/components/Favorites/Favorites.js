@@ -7,6 +7,7 @@ export default class Favorites extends React.Component {
   render() {
     return (
     <div className="chuck-jokes">
+    {this.props.favorites.length < 1 && <h1>YOU HAVE NO FAVORITES</h1>}
     <ul>
     {this.props.favorites.map((joke, i) => <li className="a-joke" key={i} id={i}>{joke}<Button clas="fave-button" text="&#9733;" handleClick={() => this.props.handleCheck(joke, i)} /></li>)}
     </ul>
@@ -16,5 +17,5 @@ export default class Favorites extends React.Component {
 }
 
 Favorites.propTypes = {
-  data: React.PropTypes.array,
+  favorites: React.PropTypes.array,
 }

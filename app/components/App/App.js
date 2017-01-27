@@ -41,6 +41,9 @@ export default class App extends React.Component {
   }
 
   handleJokenumber(e) {
+    if (e.target.value.length < 1) {
+      this.setState({ jokenumber: false })
+    }
     if (!this.state.radio && !this.state.newName) {
       this.setState({ url: `http://api.icndb.com/jokes/random/${e.target.value}/?escape=javascript`, jokenumber: true })
     }

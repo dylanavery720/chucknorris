@@ -6,7 +6,7 @@ import './button-style'
 
 const Button = props =>
    (
-    <Link className="link" to={props.src}><button className={props.clas} onClick={props.handleClick }>{props.text}</button></Link>
+    <Link className="link" to={props.src}><button className={props.clas} onClick={props.handleClick } disabled={props.disabled}>{props.text}</button></Link>
   );
 
 
