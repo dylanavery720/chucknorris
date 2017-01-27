@@ -32,8 +32,9 @@ $padding-margin: 20px;
   text-decoration: none;
   border: none;
   margin: $padding-margin;
-  display: block;
+  display: inline-block;
   margin: 0 auto;
+  text-align: center;
 }
 
 .link {

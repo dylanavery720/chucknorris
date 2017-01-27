@@ -6,6 +6,7 @@ import Main from './components/Main/Main'
 import App from './components/App/App'
 import Jokes from './components/Jokes/Jokes'
 import Settings from './components/Settings/Settings'
+import Favorites from './components/Favorites/Favorites'
 import './reset'
 import './styles'
 
@@ -17,6 +18,7 @@ render(
       <Route path="/main" component={Main} >
         <IndexRoute component={Jokes} />
         <Route path='/jokes' component={Jokes} />
+        <Route path='/favorites' component={Favorites} />
       </Route>
       <Route path='/settings' component={Settings} />
     </Route>

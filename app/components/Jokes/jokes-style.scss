@@ -7,8 +7,23 @@ $padding-margin: 20px;
   width: 25%;
   display: inline-block;
   background: rgba(0,0,0,0.2);
+  position: relative;
 }
 
 .chuck-jokes {
   text-align: center;
+}
+
+.fave-button {
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.fave-button-active{
+  color: red;
 }

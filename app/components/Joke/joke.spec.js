@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import {expect} from 'chai';
+import { expect } from 'chai';
 
 import Joke from './Joke';
 
