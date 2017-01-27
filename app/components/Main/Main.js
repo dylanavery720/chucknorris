@@ -22,6 +22,8 @@ export default class Main extends React.Component {
 
   handleCheck(joke, i) {
     const faveArray = this.state.favorites
+    const jokeClass = document.querySelector('.fave-button')
+    jokeClass.classList.toggle('fave-button-active')
     faveArray.push(joke)
     // this.setState({ favorites: faveArray })
     this.setState({ favorites: faveArray })
