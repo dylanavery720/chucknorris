@@ -11,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       joke: '',
       url: 'http://api.icndb.com/jokes/random/?escape=javascript',
-      newName: null,
+      newName: '',
       radio: null,
       settings: false,
       jokenumber: false,
@@ -87,6 +87,7 @@ export default class App extends React.Component {
       set: this.set,
       reset: this.reset,
       handleOption: this.handleOption,
+      newName: this.state.newName,
       radio: this.state.radio,
       enableSet: this.enableSet,
       handleJokenumber: this.handleJokenumber,

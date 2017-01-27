@@ -15,7 +15,7 @@ const Input = props =>
    id={props.id}
    onChange={props.handleChange}
    value={props.value} disabled={props.disabled}>
-    </input>{props.value}</label>
+    </input>{props.text}</label>
   );
 
 
